@@ -1,6 +1,6 @@
 {% set name = "pigz" %}
-{% set version = "2.3.4" %}
-{% set sha256 = "6f031fa40bc15b1d80d502ff91f83ba14f4b079e886bfb83221374f7bf5c8f9a" %}
+{% set version = "2.4" %}
+{% set sha256 = "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73" %}
 
 package:
   name: {{ name }}
@@ -12,33 +12,20 @@ source:
   sha256: {{ sha256 }}
 
 build:
+  skip: True  # [win]
   number: 0
-  features:
-    - vc9   # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py>=35]
 
 requirements:
   build:
-    - python           # [win]
-    - vc 9             # [win and py27]
-    - vc 10            # [win and py34]
-    - vc 14            # [win and py>=35]
-    - posix            # [win]
-    - pthreads-win32   # [win]
-    - m2w64-toolchain  # [win]
-    - toolchain
-    - zlib 1.2.*
+    - {{ compiler('c') }}
+    - make
+  host:
+    - zlib
   run:
-    - vc 9             # [win and py27]
-    - vc 10            # [win and py34]
-    - vc 14            # [win and py>=35]
-    - zlib 1.2.*
+    - zlib
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME   # [osx]
     - pigz -h
     - unpigz -h
 
