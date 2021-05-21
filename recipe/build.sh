@@ -3,4 +3,6 @@
 make -j$CPU_COUNT LDFLAGS="$LDFLAGS" CFLAGS="$CFLAGS" CC="$CC"
 make test
 
-cp pigz unpigz $PREFIX/bin
+mkdir -p ${PREFIX}/bin
+cp pigz ${PREFIX}/bin
+cp unpigz ${PREFIX}/bin

@@ -1,6 +1,6 @@
 {% set name = "pigz" %}
 {% set version = "2.4" %}
-{% set sha256 = "a4f816222a7b4269bd232680590b579ccc72591f1bb5adafcd7208ca77e14f73" %}
+{% set sha256 = "e228e7d18b34c4ece8d596eb6eee97bde533c6beedbb728d07d3abe90b4b1b52" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://zlib.net/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://github.com/madler/{{ name }}/archive/v{{ version }}.tar.gz 
   sha256: {{ sha256 }}
 
 build:
