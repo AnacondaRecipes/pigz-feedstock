@@ -20,9 +20,10 @@ requirements:
     - {{ compiler('c') }}
     - make
   host:
-    - zlib
+    # 6/8/2021, info from README: zlib version 1.2.6 or later is recommended, which reduces the overhead between blocks.
+    - zlib >=1.2.6
   run:
-    - zlib
+    - zlib >=1.2.6
 
 test:
   commands:
