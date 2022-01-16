@@ -1,6 +1,6 @@
 {% set name = "pigz" %}
-{% set version = "2.6" %}
-{% set sha256 = "577673676cd5c7219f94b236075451220bae3e1ca451cf849947a2998fbf5820" %}
+{% set version = "2.7" %}
+{% set sha256 = "d2045087dae5e9482158f1f1c0f21c7d3de6f7cdc7cc5848bdabda544e69aa58" %}
 
 package:
   name: {{ name }}
