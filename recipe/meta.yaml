@@ -19,10 +19,9 @@ requirements:
     - {{ stdlib('c') }}
     - make
   host:
-    # 22/8/2025, info from README: zlib version 1.2.6 or later is recommended, which reduces the overhead between blocks.
-    - zlib >=1.2.6
+    - zlib {{ zlib }}
   run:
-    - zlib >=1.2.6
+    - zlib
 
 test:
   commands:
