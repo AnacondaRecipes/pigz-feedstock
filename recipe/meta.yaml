@@ -1,15 +1,13 @@
 {% set name = "pigz" %}
-{% set version = "2.6" %}
-{% set sha256 = "577673676cd5c7219f94b236075451220bae3e1ca451cf849947a2998fbf5820" %}
+{% set version = "2.8" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/madler/{{ name }}/archive/v{{ version }}.tar.gz 
-  sha256: {{ sha256 }}
+  sha256: 2f7f6a6986996d21cb8658535fff95f1c7107ddce22b5324f4b41890e2904706
 
 build:
   skip: True  # [win]
@@ -18,12 +16,12 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - make
   host:
-    # 6/8/2021, info from README: zlib version 1.2.6 or later is recommended, which reduces the overhead between blocks.
-    - zlib >=1.2.6
+    - zlib {{ zlib }}
   run:
-    - zlib >=1.2.6
+    - zlib
 
 test:
   commands:
@@ -31,8 +29,8 @@ test:
     - unpigz -h
 
 about:
-  home: https://zlib.net/pigz/
-  license: zlib
+  home: https://zlib.net/pigz
+  license: Zlib
   license_family: other
   license_file: README
   summary: Parallel implementation of gzip
@@ -40,6 +38,7 @@ about:
     pigz, which stands for parallel implementation of gzip, is a fully functional
     replacement for gzip that exploits multiple processors and multiple cores
     to the hilt when compressing data.
+  dev_url: https://github.com/madler/pigz
   doc_url: https://zlib.net/pigz/pigz.pdf
 
 extra:
