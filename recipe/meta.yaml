@@ -38,7 +38,7 @@ about:
     pigz, which stands for parallel implementation of gzip, is a fully functional
     replacement for gzip that exploits multiple processors and multiple cores
     to the hilt when compressing data.
-  dev_url: https://github.com/madler/pigz/tree/v2.8
+  dev_url: https://github.com/madler/pigz
   doc_url: https://zlib.net/pigz/pigz.pdf
 
 extra:
